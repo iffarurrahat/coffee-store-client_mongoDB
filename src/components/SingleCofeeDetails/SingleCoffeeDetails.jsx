@@ -8,7 +8,7 @@ const SingleCoffeeDetails = () => {
     return (
         <div className="mt-40">
             <Container>
-                <div className="flex items-center justify-center bg-quaternary md:w-1/2 mx-auto py-10">
+                <div className="flex justify-between items-center gap-6 bg-quaternary md:w-1/2 py-10 px-5 mx-auto">
                     <img src={photo} alt="" />
                     <div className="space-y-2 font-raleway">
                         <h2 className="text-secondary font-rancho text-2xl">Niceties</h2>
