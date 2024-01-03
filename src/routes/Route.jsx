@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
-import About from "../Pages/About/About";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Home from '../Pages/Home/Home'
+import AddCoffee from "../Pages/AddCoffee/AddCoffee";
 
 const myCreatedRoute = createBrowserRouter([
     {
@@ -12,11 +12,12 @@ const myCreatedRoute = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home />
+                element: <Home />,
+                loader: () => fetch('http://localhost:5000/coffees')
             },
             {
-                path: '/about',
-                element: <About />
+                path: '/addCoffee',
+                element: <AddCoffee />
             },
         ]
     },

@@ -10,7 +10,7 @@ const Navbar = () => {
 
     const routes = [
         { id: 1, path: '/', name: 'Home' },
-        { id: 2, path: '/about', name: 'About' },
+        { id: 2, path: '/addCoffee', name: 'Add Coffee' },
         { id: 3, path: '/login', name: 'Login' },
     ];
 

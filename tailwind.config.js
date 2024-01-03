@@ -12,9 +12,11 @@ export default {
       },
       colors: {
         primary: "#E3B577",
-        secondary: "#331A15"
+        secondary: "#331A15",
+        tertiary: "#374151",
+        quaternary: "#F4F3F0",
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 }
