@@ -1,4 +1,5 @@
 import CoffeeProducts from "../../components/CoffeeProducts/CoffeeProducts";
+import FollowUsNow from "../../components/FollowUsNow/FollowUsNow";
 import Banner from "../../components/Header/Banner/Banner";
 import TagSection from "../../components/TagsSection/TagSection";
 
@@ -8,6 +9,7 @@ const Home = () => {
             <Banner />
             <TagSection />
             <CoffeeProducts />
+            <FollowUsNow />
         </div>
     );
 };
