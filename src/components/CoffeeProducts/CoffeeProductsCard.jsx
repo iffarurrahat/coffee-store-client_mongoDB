@@ -2,6 +2,7 @@ import { FaRegEye } from "react-icons/fa";
 import { CiEdit } from "react-icons/ci";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 const CoffeeProductsCard = ({ coffee, coffees, setCoffees }) => {
@@ -55,8 +56,12 @@ const CoffeeProductsCard = ({ coffee, coffees, setCoffees }) => {
                 <p><strong>Price:</strong> {price}Taka</p>
             </div>
             <div className="text-white">
-                <button className="bg-primary p-2 block rounded"><FaRegEye /></button>
-                <button className="bg-tertiary p-2 block rounded my-2"><CiEdit /></button>
+                <Link to={`/coffee/${_id}`}>
+                    <button className="bg-primary p-2 block rounded"><FaRegEye /></button>
+                </ Link >
+                <Link to={`/updateCoffee/${_id}`}>
+                    <button className="bg-tertiary p-2 block rounded my-2"><CiEdit /></button>
+                </Link>
                 <button onClick={() => handleDelete(_id)} className="bg-red-600 p-2 block rounded"><MdDelete /></button>
             </div>
         </div>
