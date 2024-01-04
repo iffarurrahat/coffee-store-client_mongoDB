@@ -26,7 +26,25 @@ const SignUp = () => {
                 updateProfile(result.user, {
                     displayName: name,
                     photoURL: photo
+                });
+
+
+                // post for backend
+                const createdAt = result?.user?.metadata?.creationTime;
+                const user = { email, createdAt }
+                fetch('http://localhost:5000/user', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
                 })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                    })
+
+
                 // reset password
                 form.reset();
 

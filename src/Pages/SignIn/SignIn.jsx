@@ -18,6 +18,7 @@ const SignIn = () => {
         signInUser(email, password)
             .then(result => {
                 console.log(result.user);
+                
                 // form reset
                 form.reset();
 

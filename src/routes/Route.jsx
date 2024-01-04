@@ -7,20 +7,22 @@ import SingleCoffeeDetails from "../components/SingleCofeeDetails/SingleCoffeeDe
 import SignIn from "../Pages/SignIn/SignIn";
 import SignUp from "../Pages/SignUp/SignUp";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const myCreatedRoute = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout />,
+        errorElement: <ErrorPage/>,
         children: [
             {
                 path: '/',
                 element: <Home />,
-                loader: () => fetch('http://localhost:5000/coffees')
+                loader: () => fetch('http://localhost:5000/coffees'),
             },
             {
                 path: '/addCoffee',
-                element: <AddCoffee />
+                element: <PrivateRoute><AddCoffee /></PrivateRoute>
             },
             {
                 path: '/coffee/:id',
