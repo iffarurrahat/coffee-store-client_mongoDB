@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 
@@ -7,7 +7,9 @@ import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
 
-    const { createUser } = useContext(AuthContext)
+    const { createUser } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleSignIn = event => {
         event.preventDefault()
@@ -27,6 +29,9 @@ const SignUp = () => {
                 })
                 // reset password
                 form.reset();
+
+                //navigate after login 
+                navigate(location?.state ? location?.state : '/');
             })
             .catch(error => {
                 console.log(error.message);
