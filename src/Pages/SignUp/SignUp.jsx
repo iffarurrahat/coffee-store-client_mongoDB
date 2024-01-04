@@ -1,17 +1,37 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
+import { updateProfile } from "firebase/auth";
+
 
 
 const SignUp = () => {
 
+    const { createUser } = useContext(AuthContext)
+
     const handleSignIn = event => {
         event.preventDefault()
-
-        const form = event.value;
+        const form = event.target;
         const name = form.name.value;
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photo, email, password);
+        // console.log(name, photo, email, password);
+        createUser(email, password)
+            .then(result => {
+                // console.log(result.user);
+                // profile update
+                updateProfile(result.user, {
+                    displayName: name,
+                    photoURL: photo
+                })
+                // reset password
+                form.reset();
+            })
+            .catch(error => {
+                console.log(error.message);
+
+            })
 
     }
 
@@ -24,28 +44,28 @@ const SignUp = () => {
                         <label className="label">
                             <span className="label-text">Your Name</span>
                         </label>
-                        <input type="name" placeholder="Your Name" className="input input-bordered" required />
+                        <input type="name" name="name" placeholder="Your Name" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Photo URL</span>
                         </label>
-                        <input type="photo" placeholder="Photo URL" className="input input-bordered" required />
+                        <input type="photo" name="photo" placeholder="Photo URL" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type="email" placeholder="email" className="input input-bordered" required />
+                        <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" placeholder="password" className="input input-bordered" required />
+                        <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                     </div>
                     <div className="form-control mt-6 mb-4">
-                        <button className="btn btn-primary">Sign Up</button>
+                        <button className="btn bg-secondary text-white">Sign Up</button>
                     </div>
                     <p>Already you have an account <Link to='/signin' className="text-purple-600 font-bold ">SignIn</Link></p>
                 </form>

@@ -6,6 +6,7 @@ import UpdateCoffee from "../components/UpdateCoffee/UpdateCoffee";
 import SingleCoffeeDetails from "../components/SingleCofeeDetails/SingleCoffeeDetails";
 import SignIn from "../Pages/SignIn/SignIn";
 import SignUp from "../Pages/SignUp/SignUp";
+import PrivateRoute from "./PrivateRoute";
 
 const myCreatedRoute = createBrowserRouter([
     {
@@ -23,7 +24,7 @@ const myCreatedRoute = createBrowserRouter([
             },
             {
                 path: '/coffee/:id',
-                element: < SingleCoffeeDetails />,
+                element: <PrivateRoute>< SingleCoffeeDetails /></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/coffee/${params.id}`)
             },
             {
