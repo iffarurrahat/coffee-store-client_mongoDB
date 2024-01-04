@@ -11,7 +11,8 @@ Using Tool / Package:
 - React-Icons
 - Sweetalert2
 - Tailwindcss
-- daisyui
+- DaisyUI
+- Lottie-React
 
 
 Using Font-Family:
