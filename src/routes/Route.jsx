@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
-import Login from "../Pages/Login/Login";
-import Register from "../Pages/Register/Register";
 import Home from '../Pages/Home/Home'
 import AddCoffee from "../Pages/AddCoffee/AddCoffee";
 import UpdateCoffee from "../components/UpdateCoffee/UpdateCoffee";
 import SingleCoffeeDetails from "../components/SingleCofeeDetails/SingleCoffeeDetails";
+import SignIn from "../Pages/SignIn/SignIn";
+import SignUp from "../Pages/SignUp/SignUp";
 
 const myCreatedRoute = createBrowserRouter([
     {
@@ -34,12 +34,12 @@ const myCreatedRoute = createBrowserRouter([
         ]
     },
     {
-        path: '/login',
-        element: <Login />
+        path: '/signin',
+        element: <SignIn />
     },
     {
-        path: '/register',
-        element: <Register />
+        path: '/signup',
+        element: <SignUp />
     }
 ])
 
