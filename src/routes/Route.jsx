@@ -19,7 +19,7 @@ const myCreatedRoute = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />,
-                loader: () => fetch('http://localhost:5000/coffees'),
+                loader: () => fetch('https://coffee-store-server-fzk2ikf61-iffarur-rahats-projects.vercel.app/coffees'),
             },
             {
                 path: '/addCoffee',
@@ -28,17 +28,17 @@ const myCreatedRoute = createBrowserRouter([
             {
                 path: '/users',
                 element: <PrivateRoute><Users /></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/user')
+                loader: () => fetch('https://coffee-store-server-fzk2ikf61-iffarur-rahats-projects.vercel.app/user')
             },
             {
                 path: '/coffee/:id',
                 element: <PrivateRoute>< SingleCoffeeDetails /></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/coffee/${params.id}`)
+                loader: ({ params }) => fetch(`https://coffee-store-server-fzk2ikf61-iffarur-rahats-projects.vercel.app/coffee/${params.id}`)
             },
             {
                 path: '/updateCoffee/:id',
                 element: <PrivateRoute><UpdateCoffee /></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/coffee/${params.id}`)
+                loader: ({ params }) => fetch(`https://coffee-store-server-fzk2ikf61-iffarur-rahats-projects.vercel.app/coffee/${params.id}`)
             },
         ]
     },

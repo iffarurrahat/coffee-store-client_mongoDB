@@ -23,7 +23,7 @@ const Users = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 // <-!---- fetch----->
-                fetch(`http://localhost:5000/user/${id}`, {
+                fetch(`https://coffee-store-server-fzk2ikf61-iffarur-rahats-projects.vercel.app/user/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
