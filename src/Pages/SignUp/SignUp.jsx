@@ -31,6 +31,7 @@ const SignUp = () => {
 
                 // post for backend
                 const createdAt = result?.user?.metadata?.creationTime;
+                // const lastSignIn = result?.user?.metadata?.lastSignInTime;
                 const user = { email, createdAt }
                 fetch('http://localhost:5000/user', {
                     method: 'POST',
